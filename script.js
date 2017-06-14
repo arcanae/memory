@@ -21,7 +21,7 @@ start.addEventListener("click", startfun = function() {
     start.style.display = "none";
     setTimeout(function() {
         ai = true;
-    }, 700);
+    }, 500);
 })
 
 // AI Turn
@@ -68,8 +68,8 @@ setInterval(function() {
                         user = true;
                         userorder = [];
                     }
-                }, 500)
-            }, 100 * (value + 1));
+                }, 350)
+            }, 70 * (value + 1));
         }
     }
 }, 200);
@@ -162,12 +162,12 @@ function userTurn(color, button, a, b, c, d) {
                     setTimeout(function() {
                         x++;
                         level();
-                    }, 500)
+                    }, 400)
                     setTimeout(function() {
                         ai = true;
-                    }, 1000)
+                    }, 800)
                 }
-            }, 500);
+            }, 350);
         } else {
             button.style.opacity = "0.6";
             alert("You missed !\nYour score:" + document.querySelector("#level").textContent);
