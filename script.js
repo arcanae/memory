@@ -11,8 +11,18 @@ let colors = [yellow, green, blue, purple];
 let aiorder = [];
 let userorder = [];
 
-let ai = true;
+let ai = false;
 let user = false;
+
+// Start
+
+let start = document.querySelector("#start");
+start.addEventListener("click", startfun = function() {
+    start.style.display = "none";
+    setTimeout(function() {
+        ai = true;
+    }, 700);
+})
 
 // AI Turn
 

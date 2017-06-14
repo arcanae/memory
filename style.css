@@ -29,7 +29,20 @@ main {
     text-align: center;
     font-family: "Toledo";
     font-size: 3em;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.25em;
+}
+
+.start {
+    color: white;
+    text-align: center;
+    font-family: "Toledo";
+    padding: 2px 5px 0 5px;
+    border: 1px solid darkgrey;
+}
+
+#start:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 .divcont {
