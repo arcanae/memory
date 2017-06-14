@@ -29,16 +29,13 @@ start.addEventListener("click", startfun = function() {
 setInterval(function() {
 
     if (ai === true) {
+
         ai = false;
         user = false;
-        console.log(ai);
-        console.log(user);
-        // for (let i = 1; i <= x; i++) {
         let rand = getRandomInt(0, 4);
         let color = colors[rand];
         aiorder.push(color.id);
         console.log(aiorder);
-        // }
 
         for (let value in aiorder) {
             setTimeout(function() {
@@ -70,9 +67,10 @@ setInterval(function() {
                     }
                     if (Number(value) + 1 === x) {
                         user = true;
+                        userorder = [];
                     }
-                }, 850)
-            }, 200 * (value + 1));
+                }, 500)
+            }, 100 * (value + 1));
         }
     }
 }, 200);
@@ -82,9 +80,11 @@ setInterval(function() {
 setInterval(function() {
 
     if (user === true) {
+        user = false;
+        rm = false;
+        console.log(userorder);
         addEvent();
     }
-    user = false;
 }, 200);
 
 // Functions
@@ -115,6 +115,7 @@ function removeEvent(a, b, c, d) {
     green.removeEventListener("click", b);
     blue.removeEventListener("click", c);
     purple.removeEventListener("click", d);
+    cursorDefault();
 }
 
 function addEvent() {
@@ -131,34 +132,54 @@ function addEvent() {
     // Buttons Click
     let a;
     yellow.addEventListener("click", a = function() {
+        removeEvent(a, b, c, d);
         userTurn("yellow", yellow, a, b, c, d);
     });
     let b;
     green.addEventListener("click", b = function() {
+        removeEvent(a, b, c, d);
         userTurn("green", green, a, b, c, d);
     });
     let c;
     blue.addEventListener("click", c = function() {
+        removeEvent(a, b, c, d);
         userTurn("blue", blue, a, b, c, d);
     });
     let d;
     purple.addEventListener("click", d = function() {
+        removeEvent(a, b, c, d);
         userTurn("purple", purple, a, b, c, d);
     });
 }
+let rm = false;
 
 function userTurn(color, button, a, b, c, d) {
     button.style.opacity = "1";
-    removeEvent(a, b, c, d);
-    button.addEventListener("mouseover", cursorDefault());
-    setTimeout(function() {
-        button.style.opacity = "0.6";
-        setTimeout(function() {
-            x++;
-            level();
-        }, 750)
-        setTimeout(function() {
-            ai = true;
-        }, 1500)
-    }, 850);
+    userorder.push(color);
+    for (let value in userorder) {
+        if (userorder[value] === aiorder[value]) {
+            setTimeout(function() {
+                button.style.opacity = "0.6";
+                if (Number(value) + 1 === aiorder.length) {
+                    setTimeout(function() {
+                        x++;
+                        level();
+                    }, 500)
+                    setTimeout(function() {
+                        ai = true;
+                    }, 1000)
+                }
+            }, 500);
+        } else {
+            button.style.opacity = "0.6";
+            alert("You missed !\nYour score:" + document.querySelector("#level").textContent);
+            removeEvent(a, b, c, d);
+            start.style.display = "block";
+            document.querySelector("#level").textContent = "Level 1";
+            aiorder = [];
+        }
+    }
+    if (userorder.length !== aiorder.length) {
+        addEvent();
+    }
 }
