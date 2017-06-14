@@ -1,0 +1,71 @@
+@font-face {
+    font-family: "toledo";
+    src: url("Toledo.ttf")
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 350px;
+}
+
+main {
+    display: flex;
+    width: 300px;
+    height: 300px;
+    flex-wrap: wrap;
+}
+
+#level {
+    color: white;
+    text-align: center;
+    font-family: "Toledo";
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
+
+.divcont {
+    display: flex;
+    width: 50%;
+    height: 50%;
+}
+
+.buttons {
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    opacity: 0.6;
+}
+
+#green {
+    background-color: #09ed24;
+}
+
+#blue {
+    background-color: #0f2edd;
+}
+
+#yellow {
+    background-color: yellow;
+}
+
+#purple {
+    background-color: #e00fcf;
+}
+
+@keyframes color {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 1;
+    }
+}
