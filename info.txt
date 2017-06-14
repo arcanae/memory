@@ -1,0 +1,1 @@
+Memory : This is a color memory as "Simon Game" made in Javascript during my free time.

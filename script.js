@@ -173,10 +173,11 @@ function userTurn(color, button, a, b, c, d) {
         } else {
             button.style.opacity = "0.6";
             alert("You missed !\nYour score:" + document.querySelector("#level").textContent);
-            removeEvent(a, b, c, d);
-            start.style.display = "block";
-            document.querySelector("#level").textContent = "Level 1";
-            aiorder = [];
+            // removeEvent(a, b, c, d);
+            // start.style.display = "block";
+            // document.querySelector("#level").textContent = "Level 1";
+            // aiorder = [];
+            location.href = "";
         }
     }
     if (userorder.length !== aiorder.length) {
