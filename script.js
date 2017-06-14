@@ -35,7 +35,7 @@ setInterval(function() {
         let rand = getRandomInt(0, 4);
         let color = colors[rand];
         aiorder.push(color.id);
-        console.log(aiorder);
+        // console.log(aiorder);
 
         for (let value in aiorder) {
             setTimeout(function() {
@@ -51,7 +51,6 @@ setInterval(function() {
                 if (aiorder[value] === "purple") {
                     purple.style.opacity = "1";
                 }
-                console.log(aiorder[value]);
                 setTimeout(function() {
                     if (aiorder[value] === "yellow") {
                         yellow.style.opacity = "0.6";
@@ -82,7 +81,6 @@ setInterval(function() {
     if (user === true) {
         user = false;
         rm = false;
-        console.log(userorder);
         addEvent();
     }
 }, 200);
