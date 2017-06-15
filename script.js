@@ -150,8 +150,19 @@ function removeEvent(a, b, c, d, e) {
     cursorDefault();
 }
 
-function removeText() {
-
+function lost(button) {
+    document.querySelector("#score").value = x;
+    button.style.animationName = "miss";
+    button.addEventListener("animationend", function() {
+        document.querySelector("main").style.display = "none";
+        document.querySelector("#level").style.animationName = "title";
+        document.querySelector("#subrank").style.display = "flex";
+        document.querySelector("#subrank").style.animationName = "display"
+        document.querySelector("#subrank").addEventListener("animationend", function() {
+            document.querySelector("#subrank").style.marginBottom = "20%";
+            document.querySelector("#level").style.fontSize = "6em";
+        });
+    });
 }
 
 function addEvent() {
@@ -238,9 +249,7 @@ function userTurn(color, button) {
                 }
             }, 350);
         } else {
-            button.style.opacity = "0.6";
-            alert("You missed !\nYour score:" + document.querySelector("#level").textContent);
-            location.href = "";
+            lost(button);
         }
     }
     if (userorder.length !== aiorder.length) {

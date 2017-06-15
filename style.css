@@ -11,10 +11,8 @@ body {
     display: flex;
     height: 100vh;
     background-color: black;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    min-height: 350px;
+    min-height: 550px;
 }
 
 main {
@@ -24,12 +22,22 @@ main {
     flex-wrap: wrap;
 }
 
+#maincont {
+    margin: auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 #level {
     color: white;
     text-align: center;
     font-family: "Toledo";
     font-size: 3em;
     margin-bottom: 0.25em;
+    animation-duration: 1.5s;
 }
 
 .start {
@@ -70,25 +78,107 @@ main {
 
 #green {
     background-color: #09ed24;
+    animation-duration: 0.5s;
+    animation-iteration-count: 2;
+    animation-fill-mode: linear;
 }
 
 #blue {
     background-color: #0f2edd;
+    animation-duration: 0.5s;
+    animation-iteration-count: 2;
+    animation-fill-mode: linear;
 }
 
 #yellow {
+    animation-duration: 0.5s;
+    animation-iteration-count: 2;
+    animation-fill-mode: linear;
     background-color: yellow;
 }
 
 #purple {
+    animation-duration: 0.5s;
+    animation-iteration-count: 2;
+    animation-fill-mode: linear;
     background-color: #e00fcf;
 }
 
-@keyframes color {
+#subrank {
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Toledo";
+    display: none;
+    text-align: center;
+    animation-duration: 1.5s;
+}
+
+#userlabel {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+#username {
+    margin-bottom: 1em;
+}
+
+#replay {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+    animation-duration: 1.5s;
+}
+
+form>p {
+    margin-bottom: 0.5em;
+    font-size: 1.5em;
+    font-family: "Toledo";
+}
+
+@keyframes miss {
+    from {}
+    to {
+        background-color: red;
+    }
+}
+
+@keyframes title {
     from {
-        opacity: 1;
+        font-size: 3em;
+    }
+    to {
+        font-size: 6em;
+    }
+}
+
+@keyframes display {
+    from {
+        opacity: 0;
+        margin-bottom: 0;
     }
     to {
         opacity: 1;
+        margin-bottom: 20%;
     }
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 0 auto 0.5em auto;
+    text-align: center;
+}
+
+#rankingcont {
+    color: white;
+    font-family: "Toledo";
+}
+
+footer>p {
+    color: white;
+    font-family: "Toledo";
 }
