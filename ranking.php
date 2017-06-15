@@ -1,5 +1,6 @@
 <?php
 
+if(file_exists("ranking.json")){
 $source = file_get_contents("ranking.json");
 $data = json_decode($source);
 
@@ -15,6 +16,7 @@ unlink("ranking.json");
 $open = fopen("ranking.json", "w") or die();
 fwrite($open, $encode);
 fclose($open);
+}
 
 echo "<script>";
 echo "location.href = \"../index.php\"";
