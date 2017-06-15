@@ -2,7 +2,10 @@ let yellow = document.querySelector("#yellow");
 let green = document.querySelector("#green");
 let blue = document.querySelector("#blue");
 let purple = document.querySelector("#purple");
-let buttons = document.querySelector(".buttons");
+let greentext = document.querySelector("#greentext");
+let yellowtext = document.querySelector("#yellowtext");
+let bluetext = document.querySelector("#bluetext");
+let purpletext = document.querySelector("#purpletext");
 
 let x = 1;
 
@@ -13,6 +16,30 @@ let userorder = [];
 
 let ai = false;
 let user = false;
+
+// Mobile Verif
+
+let isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+};
+
 
 // Start
 
@@ -108,12 +135,23 @@ function pointer(button) {
     button.style.cursor = "pointer";
 }
 
-function removeEvent(a, b, c, d) {
+function removeEvent(a, b, c, d, e) {
     yellow.removeEventListener("click", a);
     green.removeEventListener("click", b);
     blue.removeEventListener("click", c);
     purple.removeEventListener("click", d);
+    document.body.removeEventListener("keypress", e);
+    if (!isMobile.any()) {
+        greentext.textContent = "";
+        yellowtext.textContent = "";
+        bluetext.textContent = "";
+        purpletext.textContent = "";
+    }
     cursorDefault();
+}
+
+function removeText() {
+
 }
 
 function addEvent() {
@@ -127,31 +165,62 @@ function addEvent() {
 
     purple.addEventListener("mouseover", pointer(purple));
 
+    // Buttons Key
+    if (!isMobile.any()) {
+        greentext.textContent = "E";
+
+        yellowtext.textContent = "R";
+
+        bluetext.textContent = "D";
+
+        purpletext.textContent = "F";
+    }
+    // Buttons Keypress 
+
+    document.body.addEventListener("keypress", e = function(event) {
+        if (event.key === "e") {
+            removeEvent(a, b, c, d, e);
+            userTurn("green", green);
+        }
+        if (event.key === "r") {
+            removeEvent(a, b, c, d, e);
+            userTurn("yellow", yellow);
+        }
+        if (event.key == "d") {
+            removeEvent(a, b, c, d, e);
+            userTurn("blue", blue);
+        }
+        if (event.key == "f") {
+            removeEvent(a, b, c, d, e);
+            userTurn("purple", purple);
+        }
+    });
+
     // Buttons Click
     let a;
     yellow.addEventListener("click", a = function() {
-        removeEvent(a, b, c, d);
-        userTurn("yellow", yellow, a, b, c, d);
+        removeEvent(a, b, c, d, e);
+        userTurn("yellow", yellow);
     });
     let b;
     green.addEventListener("click", b = function() {
-        removeEvent(a, b, c, d);
-        userTurn("green", green, a, b, c, d);
+        removeEvent(a, b, c, d, e);
+        userTurn("green", green);
     });
     let c;
     blue.addEventListener("click", c = function() {
-        removeEvent(a, b, c, d);
-        userTurn("blue", blue, a, b, c, d);
+        removeEvent(a, b, c, d, e);
+        userTurn("blue", blue);
     });
     let d;
     purple.addEventListener("click", d = function() {
-        removeEvent(a, b, c, d);
-        userTurn("purple", purple, a, b, c, d);
+        removeEvent(a, b, c, d, e);
+        userTurn("purple", purple);
     });
 }
 let rm = false;
 
-function userTurn(color, button, a, b, c, d) {
+function userTurn(color, button) {
     button.style.opacity = "1";
     userorder.push(color);
     for (let value in userorder) {
@@ -171,10 +240,6 @@ function userTurn(color, button, a, b, c, d) {
         } else {
             button.style.opacity = "0.6";
             alert("You missed !\nYour score:" + document.querySelector("#level").textContent);
-            // removeEvent(a, b, c, d);
-            // start.style.display = "block";
-            // document.querySelector("#level").textContent = "Level 1";
-            // aiorder = [];
             location.href = "";
         }
     }
