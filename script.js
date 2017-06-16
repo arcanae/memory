@@ -151,17 +151,41 @@ function removeEvent(a, b, c, d, e) {
 }
 
 function lost(button) {
-    document.querySelector("#score").value = x;
     button.style.animationName = "miss";
+    let score5th = parseInt(document.querySelector("#score5th").textContent);
     button.addEventListener("animationend", function() {
-        document.querySelector("main").style.display = "none";
-        document.querySelector("#level").style.animationName = "title";
-        document.querySelector("#subrank").style.display = "flex";
-        document.querySelector("#subrank").style.animationName = "display"
-        document.querySelector("#subrank").addEventListener("animationend", function() {
-            document.querySelector("#subrank").style.marginBottom = "20%";
-            document.querySelector("#level").style.fontSize = "6em";
-        });
+        if (x <= score5th) {
+            document.querySelector("main").style.display = "none";
+            document.querySelector("#level").style.animationName = "title";
+            document.querySelector("#replay").style.display = "flex";
+            document.querySelector("#replay").style.animationName = "display"
+            document.querySelector("#replay").addEventListener("animationend", function() {
+                document.querySelector("#replay").style.marginBottom = "20%";
+                document.querySelector("#level").style.fontSize = "6em";
+            });
+        } else {
+            let log = document.querySelector("#finallog");
+            document.querySelector("#score").value = x;
+            document.querySelector("main").style.display = "none";
+            document.querySelector("#level").style.animationName = "title";
+            if (x > parseInt(document.querySelector("#score1st").textContent)) {
+                log.textContent = "You won the 1st place !";
+            } else if (x > parseInt(document.querySelector("#score2nd").textContent)) {
+                log.textContent = "You won the 2nd place !";
+            } else if (x > parseInt(document.querySelector("#score3rd").textContent)) {
+                log.textContent = "You won the 3rd place !";
+            } else if (x > parseInt(document.querySelector("#score4th").textContent)) {
+                log.textContent = "You won the 4th place !";
+            } else if (x > parseInt(document.querySelector("#score5th").textContent)) {
+                log.textContent = "You won the 5th place !";
+            }
+            document.querySelector("#subrank").style.display = "flex";
+            document.querySelector("#subrank").style.animationName = "display"
+            document.querySelector("#subrank").addEventListener("animationend", function() {
+                document.querySelector("#subrank").style.marginBottom = "15%";
+                document.querySelector("#level").style.fontSize = "6em";
+            });
+        }
     });
 }
 

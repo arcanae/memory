@@ -39,7 +39,7 @@
     </div>
     <form id="subrank" action="ranking.php" method="POST">
         <input id="score" type="hidden" name="score" value="">
-        <p id="finallog">Congratz! You won the right to replay !</p>
+        <p id="finallog"></p>
         <label id="userlabel" for="username">Enter a username:</label>
         <input id="username" type="text" name="username">
         <input type="submit" value="Submit Score">
@@ -121,11 +121,11 @@ foreach($data as $value) {
         
         ?>
         <h2 id="rankingcont">Ranking :</h2>
-        <p>1. <span id="1stname"><?php echo $auser;?></span> - Lvl <span id="1stscore"><?php echo $a; ?></span></p>
-        <p>2. <span id="2ndname"><?php echo $buser;?></span> - Lvl <span id="2ndscore"><?php echo $b; ?></span></p>
-        <p>3. <span id="3rdname"><?php echo $cuser;?></span> - Lvl <span id="3rdscore"><?php echo $c; ?></span></p>
-        <p>4. <span id="4thname"><?php echo $duser;?></span> - Lvl <span id="4thscore"><?php echo $d; ?></span></p>
-        <p>5. <span id="5thname"><?php echo $euser;?></span> - Lvl <span id="5thscore"><?php echo $e; ?></span></p>
+        <p>1. <span id="name1st"><?php echo $auser;?></span> - Lvl <span id="score1st"><?php echo $a; ?></span></p>
+        <p>2. <span id="name2nd"><?php echo $buser;?></span> - Lvl <span id="score2nd"><?php echo $b; ?></span></p>
+        <p>3. <span id="name3rd"><?php echo $cuser;?></span> - Lvl <span id="score3rd"><?php echo $c; ?></span></p>
+        <p>4. <span id="name4th"><?php echo $duser;?></span> - Lvl <span id="score4th"><?php echo $d; ?></span></p>
+        <p>5. <span id="name5th"><?php echo $euser;?></span> - Lvl <span id="score5th"><?php echo $e; ?></span></p>
     </footer>
 
     <script src="script.js"></script>

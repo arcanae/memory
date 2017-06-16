@@ -19,6 +19,6 @@ fclose($open);
 }
 
 echo "<script>";
-echo "location.href = \"../index.php\"";
+echo "location.href = \"index.php\"";
 echo "</script>";
 ?>
