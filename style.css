@@ -173,6 +173,10 @@ footer {
     text-align: center;
 }
 
+.submit {
+    height: 15%;
+}
+
 #rankingcont {
     color: white;
     font-family: "Toledo";

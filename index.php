@@ -42,11 +42,11 @@
         <p id="finallog"></p>
         <label id="userlabel" for="username">Enter a username:</label>
         <input id="username" type="text" name="username">
-        <input type="submit" value="Submit Score">
+        <input class="submit" type="submit" value="Submit Score">
     </form>
     <form id="replay" action="" method="POST">
         <p id="finallog">Congratz! You won the right to replay !</p>
-        <input type="submit" value="Replay">
+        <input class="submit" type="submit" value="Replay">
     </form>
     <footer>
         <?php 
