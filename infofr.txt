@@ -1,1 +1,2 @@
 Memory: Jeu de mémoire comme le "Simon Game" fait en JavaScript durant mon temps libre.
+Edit: Ajout d'un système de classement, fait en PHP.
