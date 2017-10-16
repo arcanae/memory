@@ -18,7 +18,5 @@ fwrite($open, $encode);
 fclose($open);
 }
 
-echo "<script>";
-echo "location.href = \"index.php\"";
-echo "</script>";
+header('Location: ./index.php');
 ?>
